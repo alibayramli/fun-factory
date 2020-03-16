@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/fun-factory/static/css/main.58ea05cd.chunk.css",
+    "main.js": "/fun-factory/static/js/main.4f20a314.chunk.js",
+    "main.js.map": "/fun-factory/static/js/main.4f20a314.chunk.js.map",
+    "runtime-main.js": "/fun-factory/static/js/runtime-main.5c04ea4c.js",
+    "runtime-main.js.map": "/fun-factory/static/js/runtime-main.5c04ea4c.js.map",
+    "static/js/2.ae4e9589.chunk.js": "/fun-factory/static/js/2.ae4e9589.chunk.js",
+    "static/js/2.ae4e9589.chunk.js.map": "/fun-factory/static/js/2.ae4e9589.chunk.js.map",
+    "index.html": "/fun-factory/index.html",
+    "precache-manifest.c0843aa481767f4689c397cd7241dde2.js": "/fun-factory/precache-manifest.c0843aa481767f4689c397cd7241dde2.js",
+    "service-worker.js": "/fun-factory/service-worker.js",
+    "static/css/main.58ea05cd.chunk.css.map": "/fun-factory/static/css/main.58ea05cd.chunk.css.map",
+    "static/js/2.ae4e9589.chunk.js.LICENSE.txt": "/fun-factory/static/js/2.ae4e9589.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5c04ea4c.js",
+    "static/js/2.ae4e9589.chunk.js",
+    "static/css/main.58ea05cd.chunk.css",
+    "static/js/main.4f20a314.chunk.js"
+  ]
+}
