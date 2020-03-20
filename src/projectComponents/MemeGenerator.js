@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import Form from "./Form";
 export class MemeGenerator extends Component {
   constructor() {
     super();
@@ -17,7 +17,6 @@ export class MemeGenerator extends Component {
   handleRanImg(event) {
     event.preventDefault();
     let rand = Math.floor(Math.random() * this.state.allMemeImgs.length) + 1;
-
     this.setState({ randImg: this.state.allMemeImgs[rand].url });
   }
   handleChange(event) {
@@ -48,23 +47,12 @@ export class MemeGenerator extends Component {
             ? "Here is your meme, enjoy :)"
             : "First shuffle an image!"}
         </p>
-        <form className="meme-form">
-          <input
-            name="topText"
-            value={this.state.topText}
-            type="text"
-            placeholder="Top text:"
-            onChange={this.handleChange}
-          ></input>
-          <input
-            name="bottomText"
-            value={this.state.bottomText}
-            type="text"
-            placeholder="Bottom text:"
-            onChange={this.handleChange}
-          ></input>
-          <button onClick={this.handleRanImg}>Shuffle</button>
-        </form>
+        <Form
+          topText={this.state.topText}
+          bottomText={this.state.bottomText}
+          handleChange={this.handleChange}
+          handleRanImg={this.handleRanImg}
+        />
 
         <div className="meme">
           <img alt="" src={this.state.randImg}></img>
