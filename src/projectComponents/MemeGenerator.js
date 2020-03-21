@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import Form from "./Form";
+import NavBar from "./Navbar";
+import ImgInfo from "./ImgInfo";
+import { Typography } from "@material-ui/core";
 export class MemeGenerator extends Component {
   constructor() {
     super();
@@ -8,7 +11,6 @@ export class MemeGenerator extends Component {
       bottomText: "",
       randImg: "",
       allMemeImgs: [],
-      planets: {},
       hasErrors: false
     };
     this.handleChange = this.handleChange.bind(this);
@@ -36,34 +38,24 @@ export class MemeGenerator extends Component {
   render() {
     return (
       <div>
-        <p
-          style={
-            !this.randImg
-              ? { color: "#6441a5", fontFamily: "monospace", fontSize: "200%" }
-              : { display: "none" }
-          }
-        >
+        <NavBar />
+        <Typography variant="h6">
           {this.state.randImg
             ? "Here is your meme, enjoy :)"
             : "First shuffle an image!"}
-        </p>
+        </Typography>
+
         <Form
           topText={this.state.topText}
           bottomText={this.state.bottomText}
           handleChange={this.handleChange}
           handleRanImg={this.handleRanImg}
         />
-
-        <div className="meme">
-          <img alt="" src={this.state.randImg}></img>
-          <h2 className="top">
-            {this.state.randImg ? this.state.topText : ""}
-          </h2>
-          <h2 className="bottom">
-            {this.state.randImg ? this.state.bottomText : ""}
-          </h2>
-          <br /> <br />
-        </div>
+        <ImgInfo
+          randImg={this.state.randImg}
+          topText={this.state.topText}
+          bottomText={this.state.bottomText}
+        />
       </div>
     );
   }
