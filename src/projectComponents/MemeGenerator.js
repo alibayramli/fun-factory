@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Form from "./Form";
 import NavBar from "./Navbar";
 import ImgInfo from "./ImgInfo";
+import Album from "./Album";
 import { Typography } from "@material-ui/core";
 export class MemeGenerator extends Component {
   constructor() {
@@ -39,7 +40,8 @@ export class MemeGenerator extends Component {
     return (
       <div>
         <NavBar />
-        <Typography variant="h6">
+        <Album />
+        {/* <Typography variant="h6">
           {this.state.randImg
             ? "Here is your meme, enjoy :)"
             : "First shuffle an image!"}
@@ -55,7 +57,7 @@ export class MemeGenerator extends Component {
           randImg={this.state.randImg}
           topText={this.state.topText}
           bottomText={this.state.bottomText}
-        />
+        /> */}
       </div>
     );
   }
