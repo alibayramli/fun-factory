@@ -1,32 +1,16 @@
 import React from "react";
-import AppBar from "@material-ui/core/AppBar";
+import Footer from "./Footer";
 import Button from "@material-ui/core/Button";
-import CameraIcon from "@material-ui/icons/PhotoCamera";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Grid from "@material-ui/core/Grid";
-import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-import Link from "@material-ui/core/Link";
 import TextField from "@material-ui/core/TextField";
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
 
 const useStyles = makeStyles(theme => ({
   icon: {
@@ -61,13 +45,12 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const cards = [1];
-export default function Album() {
+export default function Album(props) {
   const classes = useStyles();
 
   return (
     <React.Fragment>
       <CssBaseline />
-
       <main>
         {/* Hero unit */}
         <div className={classes.heroContent}>
@@ -79,7 +62,7 @@ export default function Album() {
               color="textPrimary"
               gutterBottom
             >
-              What is this app?
+              How it works
             </Typography>
             <Typography
               variant="h5"
@@ -87,22 +70,29 @@ export default function Album() {
               color="textSecondary"
               paragraph
             >
-              Something short and leading about the collection below—its
-              contents, the creator, etc. Make it short and sweet, but not too
-              short so folks don&apos;t simply skip over it entirely.
+              Click <i>shuffle</i> button to get a random meme image and use
+              your creativity by adding top/bottom texts!
             </Typography>
             <div className={classes.heroButtons}>
               <Grid container spacing={2} justify="center">
                 <Grid item>
-                  <Button variant="contained" color="primary">
-                    Main call to action
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={props.src}
+                  >
+                    Shuffle
                   </Button>
                 </Grid>
               </Grid>
             </div>
           </Container>
         </div>
-        <Container className={classes.cardGrid} maxWidth="md">
+        <Container
+          className={classes.cardGrid}
+          maxWidth="md"
+          style={props.component.randImg ? null : { display: "none" }}
+        >
           {/* End hero unit */}
           <Grid container spacing={4}>
             {cards.map(card => (
@@ -110,8 +100,8 @@ export default function Album() {
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
-                    image="https://source.unsplash.com/random"
                     title="Image title"
+                    image={props.component.randImg}
                   />
 
                   <CardActions>
@@ -142,20 +132,7 @@ export default function Album() {
         </Container>
       </main>
       {/* Footer */}
-      <footer className={classes.footer}>
-        <Typography variant="h6" align="center" gutterBottom>
-          Footer
-        </Typography>
-        <Typography
-          variant="subtitle1"
-          align="center"
-          color="textSecondary"
-          component="p"
-        >
-          Something here to give the footer a purpose!
-        </Typography>
-        <Copyright />
-      </footer>
+      <Footer component={props.component} />
       {/* End footer */}
     </React.Fragment>
   );
