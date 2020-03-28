@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import Form from "./Form";
 import NavBar from "./Navbar";
-import ImgInfo from "./ImgInfo";
 import Album from "./Album";
 import { Typography } from "@material-ui/core";
 export class MemeGenerator extends Component {
@@ -10,6 +8,7 @@ export class MemeGenerator extends Component {
     this.state = {
       topText: "",
       bottomText: "",
+      test: "but it works",
       randImg: "",
       allMemeImgs: [],
       hasErrors: false
@@ -20,7 +19,9 @@ export class MemeGenerator extends Component {
   handleRanImg(event) {
     event.preventDefault();
     let rand = Math.floor(Math.random() * this.state.allMemeImgs.length) + 1;
+
     this.setState({ randImg: this.state.allMemeImgs[rand].url });
+    console.log("testing " + this.state.randImg);
   }
   handleChange(event) {
     const { name, value } = event.target;
@@ -40,7 +41,9 @@ export class MemeGenerator extends Component {
     return (
       <div>
         <NavBar />
-        <Album />
+
+        <Album component={this.state} src={this.handleRanImg} />
+
         {/* <Typography variant="h6">
           {this.state.randImg
             ? "Here is your meme, enjoy :)"
