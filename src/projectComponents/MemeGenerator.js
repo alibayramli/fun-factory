@@ -11,7 +11,7 @@ export class MemeGenerator extends Component {
       test: "but it works",
       randImg: "",
       allMemeImgs: [],
-      hasErrors: false
+      hasErrors: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleRanImg = this.handleRanImg.bind(this);
@@ -21,7 +21,6 @@ export class MemeGenerator extends Component {
     let rand = Math.floor(Math.random() * this.state.allMemeImgs.length) + 1;
 
     this.setState({ randImg: this.state.allMemeImgs[rand].url });
-    console.log("testing " + this.state.randImg);
   }
   handleChange(event) {
     const { name, value } = event.target;
@@ -29,8 +28,8 @@ export class MemeGenerator extends Component {
   }
   componentDidMount() {
     fetch("https://api.imgflip.com/get_memes")
-      .then(res => res.json())
-      .then(res => {
+      .then((res) => res.json())
+      .then((res) => {
         let { memes } = res.data;
         return this.setState({ allMemeImgs: memes });
       })
@@ -42,7 +41,11 @@ export class MemeGenerator extends Component {
       <div>
         <NavBar />
 
-        <Album component={this.state} src={this.handleRanImg} />
+        <Album
+          component={this.state}
+          src={this.handleRanImg}
+          handleChange={this.handleChange}
+        />
 
         {/* <Typography variant="h6">
           {this.state.randImg
