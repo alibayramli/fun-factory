@@ -12,36 +12,36 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import TextField from "@material-ui/core/TextField";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   icon: {
-    marginRight: theme.spacing(2)
+    marginRight: theme.spacing(2),
   },
   heroContent: {
     backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(8, 0, 6)
+    padding: theme.spacing(8, 0, 6),
   },
   heroButtons: {
-    marginTop: theme.spacing(4)
+    marginTop: theme.spacing(4),
   },
   cardGrid: {
     paddingTop: theme.spacing(8),
-    paddingBottom: theme.spacing(8)
+    paddingBottom: theme.spacing(8),
   },
   card: {
     height: "100%",
     display: "flex",
-    flexDirection: "column"
+    flexDirection: "column",
   },
   cardMedia: {
-    paddingTop: "56.25%" // 16:9
+    // 16:9
   },
   cardContent: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   footer: {
     backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(6)
-  }
+    padding: theme.spacing(6),
+  },
 }));
 
 const cards = [1];
@@ -95,25 +95,36 @@ export default function Album(props) {
         >
           {/* End hero unit */}
           <Grid container spacing={4}>
-            {cards.map(card => (
+            {cards.map((card) => (
               <Grid item key={card} xs={12} sm={12} md={12}>
                 <Card className={classes.card}>
-                  <CardMedia
-                    className={classes.cardMedia}
-                    title="Image title"
-                    image={props.component.randImg}
-                  />
+                  <CardMedia className={classes.cardMedia} title="Image title">
+                    <div className="container">
+                      <img
+                        src={props.component.randImg}
+                        alt="Snow"
+                        style={{ width: "100%" }}
+                      />
+                      />
+                    </div>
+                  </CardMedia>
 
                   <CardActions>
                     <TextField
                       id="standard-search"
                       label="top text"
                       type="search"
+                      name="topText"
+                      value={props.component.topText}
+                      onChange={props.handleChange}
                     />
                     <TextField
                       id="standard-search"
                       label="bottom text"
                       type="search"
+                      name="bottomText"
+                      value={props.component.bottomText}
+                      onChange={props.handleChange}
                     />
                   </CardActions>
                   <CardContent className={classes.cardContent}>
