@@ -34,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
   },
   cardMedia: {
     // 16:9
+    paddingTop: "2%",
   },
   cardContent: {
     flexGrow: 1,
@@ -99,13 +100,14 @@ export default function Album(props) {
               <Grid item key={card} xs={12} sm={12} md={12}>
                 <Card className={classes.card}>
                   <CardMedia className={classes.cardMedia} title="Image title">
-                    <div className="container">
+                    <div className="container meme">
                       <img
                         src={props.component.randImg}
                         alt="Snow"
                         style={{ width: "100%" }}
                       />
-                      />
+                      <h2 className="top">{props.component.topText}</h2>
+                      <h2 className="bottom">{props.component.bottomText}</h2>
                     </div>
                   </CardMedia>
 
