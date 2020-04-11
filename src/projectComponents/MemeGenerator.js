@@ -46,24 +46,6 @@ export class MemeGenerator extends Component {
           src={this.handleRanImg}
           handleChange={this.handleChange}
         />
-
-        {/* <Typography variant="h6">
-          {this.state.randImg
-            ? "Here is your meme, enjoy :)"
-            : "First shuffle an image!"}
-        </Typography>
-
-        <Form
-          topText={this.state.topText}
-          bottomText={this.state.bottomText}
-          handleChange={this.handleChange}
-          handleRanImg={this.handleRanImg}
-        />
-        <ImgInfo
-          randImg={this.state.randImg}
-          topText={this.state.topText}
-          bottomText={this.state.bottomText}
-        /> */}
       </div>
     );
   }
