@@ -109,9 +109,7 @@ export default function Album(props) {
                       <h2 className="top">{props.component.topText}</h2>
                       <h2 className="bottom">{props.component.bottomText}</h2>
                     </div>
-                  </CardMedia>
-
-                  <CardActions>
+                     <CardActions>
                     <TextField
                       id="standard-search"
                       label="top text"
@@ -129,6 +127,7 @@ export default function Album(props) {
                       onChange={props.handleChange}
                     />
                   </CardActions>
+                  </CardMedia>  
                   <CardContent className={classes.cardContent}>
                     <Typography color="textSecondary">
                       Here is your meme image. Enjoy ^^
