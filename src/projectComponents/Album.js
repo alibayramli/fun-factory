@@ -127,10 +127,7 @@ export default function Album(props) {
                         />
                       </CardActions>
                     </div>
-
                   </CardMedia>
-
-
                   <CardContent className={classes.cardContent}>
                     <Typography color="textSecondary">
                       Here is your meme image. Enjoy ^^
