@@ -74,13 +74,61 @@ export default function Album(props) {
               Click <i>shuffle</i> button to get a random meme image and use
               your creativity by adding top/bottom texts!
             </Typography>
+            <div style={props.component.randImg ? null : { display: "none" }}>
+              <Grid container spacing={4}>
+                {cards.map((card) => (
+                  <Grid item key={card} xs={12} sm={12} md={12}>
+                    <Card className={classes.card}>
+                      <CardMedia className={classes.cardMedia} title="Image title">
+                        <div className="container meme">
+                          <img
+                            src={props.component.randImg}
+                            alt="Snow"
+                            style={{ width: "100%" }}
+                          />
+                          <h2 className="top">{props.component.topText}</h2>
+                          <h2 className="bottom">{props.component.bottomText}</h2>
+                          <CardActions>
+                            <TextField
+                              id="standard-search"
+                              label="top text"
+                              type="search"
+                              name="topText"
+                              value={props.component.topText}
+                              onChange={props.handleChange}
+                            />
+                            <TextField
+                              id="standard-search"
+                              label="bottom text"
+                              type="search"
+                              name="bottomText"
+                              value={props.component.bottomText}
+                              onChange={props.handleChange}
+                            />
+                          </CardActions>
+                        </div>
+                      </CardMedia>
+                      <CardContent className={classes.cardContent}>
+                        <Typography color="textSecondary">
+                          Here is your meme image. Enjoy ^^
+                    </Typography>
+                      </CardContent>
+                    </Card>
+                  </Grid>
+                ))}
+              </Grid>
+            </div>
+            {/* End hero unit */}
+
+
             <div className={classes.heroButtons}>
               <Grid container spacing={2} justify="center">
-                <Grid item>
+                <Grid item >
                   <Button
                     variant="contained"
                     color="primary"
                     onClick={props.src}
+
                   >
                     Shuffle
                   </Button>
@@ -89,55 +137,7 @@ export default function Album(props) {
             </div>
           </Container>
         </div>
-        <Container
-          className={classes.cardGrid}
-          maxWidth="md"
-          style={props.component.randImg ? null : { display: "none" }}
-        >
-          {/* End hero unit */}
-          <Grid container spacing={4}>
-            {cards.map((card) => (
-              <Grid item key={card} xs={12} sm={12} md={12}>
-                <Card className={classes.card}>
-                  <CardMedia className={classes.cardMedia} title="Image title">
-                    <div className="container meme">
-                      <img
-                        src={props.component.randImg}
-                        alt="Snow"
-                        style={{ width: "100%" }}
-                      />
-                      <h2 className="top">{props.component.topText}</h2>
-                      <h2 className="bottom">{props.component.bottomText}</h2>
-                      <CardActions>
-                        <TextField
-                          id="standard-search"
-                          label="top text"
-                          type="search"
-                          name="topText"
-                          value={props.component.topText}
-                          onChange={props.handleChange}
-                        />
-                        <TextField
-                          id="standard-search"
-                          label="bottom text"
-                          type="search"
-                          name="bottomText"
-                          value={props.component.bottomText}
-                          onChange={props.handleChange}
-                        />
-                      </CardActions>
-                    </div>
-                  </CardMedia>
-                  <CardContent className={classes.cardContent}>
-                    <Typography color="textSecondary">
-                      Here is your meme image. Enjoy ^^
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
+
       </main>
       {/* Footer */}
       <Footer component={props.component} />
