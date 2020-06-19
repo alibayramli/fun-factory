@@ -8,7 +8,6 @@ export class MemeGenerator extends Component {
     this.state = {
       topText: "",
       bottomText: "",
-      test: "but it works",
       randImg: "",
       allMemeImgs: [],
       hasErrors: false,

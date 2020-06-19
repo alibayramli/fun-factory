@@ -108,27 +108,29 @@ export default function Album(props) {
                       />
                       <h2 className="top">{props.component.topText}</h2>
                       <h2 className="bottom">{props.component.bottomText}</h2>
+                      <CardActions>
+                        <TextField
+                          id="standard-search"
+                          label="top text"
+                          type="search"
+                          name="topText"
+                          value={props.component.topText}
+                          onChange={props.handleChange}
+                        />
+                        <TextField
+                          id="standard-search"
+                          label="bottom text"
+                          type="search"
+                          name="bottomText"
+                          value={props.component.bottomText}
+                          onChange={props.handleChange}
+                        />
+                      </CardActions>
                     </div>
+
                   </CardMedia>
 
-                  <CardActions>
-                    <TextField
-                      id="standard-search"
-                      label="top text"
-                      type="search"
-                      name="topText"
-                      value={props.component.topText}
-                      onChange={props.handleChange}
-                    />
-                    <TextField
-                      id="standard-search"
-                      label="bottom text"
-                      type="search"
-                      name="bottomText"
-                      value={props.component.bottomText}
-                      onChange={props.handleChange}
-                    />
-                  </CardActions>
+
                   <CardContent className={classes.cardContent}>
                     <Typography color="textSecondary">
                       Here is your meme image. Enjoy ^^
