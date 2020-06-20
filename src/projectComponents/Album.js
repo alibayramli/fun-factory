@@ -123,6 +123,16 @@ export default function Album(props) {
 
             <div className={classes.heroButtons}>
               <Grid container spacing={2} justify="center">
+                <Grid item style={!props.component.showPreviousButton ? { 'display': 'none' } : null}>
+                  <Button
+                    variant="contained"
+
+                    onClick={props.handlePrevImg}
+
+                  >
+                    Previous
+                  </Button>
+                </Grid>
                 <Grid item >
                   <Button
                     variant="contained"
