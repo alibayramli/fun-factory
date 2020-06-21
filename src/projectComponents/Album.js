@@ -123,11 +123,12 @@ export default function Album(props) {
 
             <div className={classes.heroButtons}>
               <Grid container spacing={2} justify="center">
-                <Grid item style={!props.component.showPreviousButton ? { 'display': 'none' } : null}>
+                <Grid item>
                   <Button
                     variant="contained"
 
                     onClick={props.handlePrevImg}
+                    disabled={(!props.component.imgCount || props.component.indexOfCurrentImg === 0) ? true : false}
 
                   >
                     Previous
@@ -136,9 +137,19 @@ export default function Album(props) {
                 <Grid item >
                   <Button
                     variant="contained"
+                    onClick={props.handleNextImg}
+                    disabled={(props.component.indexOfCurrentImg === props.component.shuffledImgs.length - 1 || props.component.shuffledImgs.length === 0) ? true : false}
+                  >
+                    Next
+                  </Button>
+
+                </Grid>
+                <Grid item>
+                  <Button
+                    variant="contained"
                     color="primary"
                     onClick={props.src}
-
+                    disabled={props.component.indexOfCurrentImg < props.component.shuffledImgs.length - 1 ? true : false}
                   >
                     Shuffle
                   </Button>

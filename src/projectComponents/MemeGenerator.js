@@ -8,40 +8,42 @@ export class MemeGenerator extends Component {
     this.state = {
       topText: "",
       bottomText: "",
+      indexOfCurrentImg: 0,
       randImg: "",
-      previousImg: "",
-      showPreviousButton: false,
       imgCount: 0,
       allMemeImgs: [],
       shuffledImgs: [],
-      hasErrors: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleRanImg = this.handleRanImg.bind(this);
     this.handlePrevImg = this.handlePrevImg.bind(this);
+    this.handleNextImg = this.handleNextImg.bind(this);
   }
   handleRanImg(event) {
     event.preventDefault();
     let rand = Math.floor(Math.random() * (this.state.allMemeImgs.length) - 1) + 1;
-    this.setState(
-      {
+    if (!this.state.shuffledImgs.includes(this.state.allMemeImgs[rand].url)) {
+      this.setState({
         randImg: this.state.allMemeImgs[rand].url,
         imgCount: this.state.imgCount + 1,
         shuffledImgs: this.state.shuffledImgs.concat(this.state.allMemeImgs[rand].url)
       }, () => {
-        if (this.state.imgCount > 1) {
-          this.setState(
-            {
-              showPreviousButton: true
-            }, () => {
-              this.setState({ previousImg: this.state.shuffledImgs[this.state.shuffledImgs.length - 2] })
-            });
-        }
-      });
+        this.setState(
+          {
+            indexOfCurrentImg: this.state.shuffledImgs.indexOf(this.state.randImg)
+          });
+      })
+    }
   }
-  handlePrevImg(event) {
-    console.log('current url: ' + this.state.randImg + ' previous url:' + this.state.previousImg)
-    this.setState({ randImg: this.state.previousImg, showPreviousButton: false });
+  handlePrevImg() {
+    this.setState({ indexOfCurrentImg: this.state.indexOfCurrentImg - 1 }, () => {
+      this.setState({ randImg: this.state.shuffledImgs[this.state.indexOfCurrentImg] });
+    })
+  }
+  handleNextImg() {
+    this.setState({ indexOfCurrentImg: this.state.indexOfCurrentImg + 1 }, () => {
+      this.setState({ randImg: this.state.shuffledImgs[this.state.indexOfCurrentImg] });
+    })
   }
   handleChange(event) {
     const { name, value } = event.target;
@@ -54,7 +56,7 @@ export class MemeGenerator extends Component {
         let { memes } = res.data;
         return this.setState({ allMemeImgs: memes });
       })
-      .catch(() => this.setState({ hasErrors: true }));
+      .catch((e) => console.log(`Error : ${e}`));
   }
 
   render() {
@@ -67,11 +69,10 @@ export class MemeGenerator extends Component {
           src={this.handleRanImg}
           handleChange={this.handleChange}
           handlePrevImg={this.handlePrevImg}
-
+          handleNextImg={this.handleNextImg}
         />
       </div>
     );
   }
 }
-
 export default MemeGenerator;
