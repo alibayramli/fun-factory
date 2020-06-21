@@ -172,9 +172,9 @@ export default function Album(props) {
                       {/* <Button size="small" color="primary">
                         View
                     </Button> */}
-                      {/* <Button size="small" color="secondary" >
+                      <Button size="small" color="secondary" onClick={() => props.handleDelete(index)}>
                         Delete
-                    </Button> */}
+                      </Button>
                     </CardActions>
                   </Card>
                 </Grid>

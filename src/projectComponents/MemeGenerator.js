@@ -17,6 +17,8 @@ export class MemeGenerator extends Component {
     this.handleRanImg = this.handleRanImg.bind(this);
     this.handlePrevImg = this.handlePrevImg.bind(this);
     this.handleNextImg = this.handleNextImg.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
+
   }
   handleRanImg(event) {
     event.preventDefault();
@@ -44,6 +46,11 @@ export class MemeGenerator extends Component {
       this.setState({ randImg: this.state.shuffledImgs[this.state.indexOfCurrentImg] });
     })
   }
+  handleDelete(index) {
+    console.log(`In parent index: ${index}`)
+    let newShuffledImg = this.state.shuffledImgs.filter((el, i) => i !== index);
+    this.setState({ shuffledImgs: newShuffledImg })
+  }
   handleChange(event) {
     const { name, value } = event.target;
     this.setState({ [name]: value });
@@ -68,6 +75,7 @@ export class MemeGenerator extends Component {
           handleChange={this.handleChange}
           handlePrevImg={this.handlePrevImg}
           handleNextImg={this.handleNextImg}
+          handleDelete={this.handleDelete}
         />
       </div>
     );
