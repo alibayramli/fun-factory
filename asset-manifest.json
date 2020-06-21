@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/fun-factory/static/css/main.81213aa6.chunk.css",
-    "main.js": "/fun-factory/static/js/main.8e0d3e8e.chunk.js",
-    "main.js.map": "/fun-factory/static/js/main.8e0d3e8e.chunk.js.map",
+    "main.js": "/fun-factory/static/js/main.e93ea347.chunk.js",
+    "main.js.map": "/fun-factory/static/js/main.e93ea347.chunk.js.map",
     "runtime-main.js": "/fun-factory/static/js/runtime-main.5c04ea4c.js",
     "runtime-main.js.map": "/fun-factory/static/js/runtime-main.5c04ea4c.js.map",
     "static/js/2.92853f6b.chunk.js": "/fun-factory/static/js/2.92853f6b.chunk.js",
     "static/js/2.92853f6b.chunk.js.map": "/fun-factory/static/js/2.92853f6b.chunk.js.map",
     "index.html": "/fun-factory/index.html",
-    "precache-manifest.9549f11bfb56a18d4b4e84876bb1f582.js": "/fun-factory/precache-manifest.9549f11bfb56a18d4b4e84876bb1f582.js",
+    "precache-manifest.449d72c281884f1b7fc8c4486ff33f22.js": "/fun-factory/precache-manifest.449d72c281884f1b7fc8c4486ff33f22.js",
     "service-worker.js": "/fun-factory/service-worker.js",
     "static/css/main.81213aa6.chunk.css.map": "/fun-factory/static/css/main.81213aa6.chunk.css.map",
     "static/js/2.92853f6b.chunk.js.LICENSE.txt": "/fun-factory/static/js/2.92853f6b.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.5c04ea4c.js",
     "static/js/2.92853f6b.chunk.js",
     "static/css/main.81213aa6.chunk.css",
-    "static/js/main.8e0d3e8e.chunk.js"
+    "static/js/main.e93ea347.chunk.js"
   ]
 }
