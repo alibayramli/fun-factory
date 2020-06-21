@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import NavBar from "./Navbar";
 import Album from "./Album";
-import { Typography } from "@material-ui/core";
 export class MemeGenerator extends Component {
   constructor() {
     super();
