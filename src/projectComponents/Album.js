@@ -36,6 +36,10 @@ const useStyles = makeStyles((theme) => ({
     // 16:9
     paddingTop: "2%",
   },
+  cardMediaImgList: {
+    // 16:9
+    paddingTop: "56.25%",
+  },
   cardContent: {
     flexGrow: 1,
   },
@@ -48,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
 const cards = [1];
 export default function Album(props) {
   const classes = useStyles();
-
+  const imgList = props.component.shuffledImgs || [];
   return (
     <React.Fragment>
       <CssBaseline />
@@ -119,17 +123,13 @@ export default function Album(props) {
               </Grid>
             </div>
             {/* End hero unit */}
-
-
             <div className={classes.heroButtons}>
               <Grid container spacing={2} justify="center">
                 <Grid item>
                   <Button
                     variant="contained"
-
                     onClick={props.handlePrevImg}
                     disabled={(!props.component.imgCount || props.component.indexOfCurrentImg === 0) ? true : false}
-
                   >
                     Previous
                   </Button>
@@ -156,6 +156,36 @@ export default function Album(props) {
                 </Grid>
               </Grid>
             </div>
+          </Container>
+          <Container className={classes.cardGrid} maxWidth="md">
+
+            <Grid container spacing={4}>
+              {imgList.map((card, index) => (
+                <Grid item key={index} xs={12} sm={6} md={4}>
+                  <Card className={classes.card}>
+                    <CardMedia
+                      className={classes.cardMediaImgList}
+                      image={card}
+                      title="Image title"
+                    />
+                    <CardContent className={classes.cardContent}>
+                      <Typography gutterBottom variant="h5" component="h2">
+                        Meme {index + 1}
+                      </Typography>
+
+                    </CardContent>
+                    <CardActions>
+                      {/* <Button size="small" color="primary">
+                        View
+                    </Button> */}
+                      {/* <Button size="small" color="secondary" >
+                        Delete
+                    </Button> */}
+                    </CardActions>
+                  </Card>
+                </Grid>
+              ))}
+            </Grid>
           </Container>
         </div>
 
