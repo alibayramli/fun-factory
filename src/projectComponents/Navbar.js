@@ -1,5 +1,4 @@
 import React from "react";
-import "./Navbar.css";
 import { makeStyles } from "@material-ui/core/styles";
 import { AppBar, Typography, Toolbar, IconButton } from "@material-ui/core/";
 const useStyles = makeStyles(theme => ({

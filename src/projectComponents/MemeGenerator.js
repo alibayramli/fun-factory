@@ -62,7 +62,6 @@ export class MemeGenerator extends Component {
     return (
       <div>
         <NavBar />
-
         <Album
           component={this.state}
           src={this.handleRanImg}

@@ -33,11 +33,9 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
   },
   cardMedia: {
-    // 16:9
     paddingTop: "2%",
   },
   cardMediaImgList: {
-    // 16:9
     paddingTop: "56.25%",
   },
   cardContent: {
@@ -122,7 +120,6 @@ export default function Album(props) {
                 ))}
               </Grid>
             </div>
-            {/* End hero unit */}
             <div className={classes.heroButtons}>
               <Grid container spacing={2} justify="center">
                 <Grid item>
@@ -142,7 +139,6 @@ export default function Album(props) {
                   >
                     Next
                   </Button>
-
                 </Grid>
                 <Grid item>
                   <Button
@@ -158,7 +154,6 @@ export default function Album(props) {
             </div>
           </Container>
           <Container className={classes.cardGrid} maxWidth="md">
-
             <Grid container spacing={4}>
               {imgList.map((card, index) => (
                 <Grid item key={index} xs={12} sm={6} md={4}>
@@ -172,7 +167,6 @@ export default function Album(props) {
                       <Typography gutterBottom variant="h5" component="h2">
                         Meme {index + 1}
                       </Typography>
-
                     </CardContent>
                     <CardActions>
                       {/* <Button size="small" color="primary">
@@ -188,11 +182,8 @@ export default function Album(props) {
             </Grid>
           </Container>
         </div>
-
       </main>
-      {/* Footer */}
       <Footer component={props.component} />
-      {/* End footer */}
     </React.Fragment>
   );
 }
