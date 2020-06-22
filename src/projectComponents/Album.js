@@ -113,9 +113,13 @@ export default function Album(props) {
                       <CardContent className={classes.cardContent}>
                         <Typography color="textSecondary">
                           Here is your meme image. Enjoy ^^
-                    </Typography>
+                        </Typography>
                       </CardContent>
                     </Card>
+                    <Typography color="textSecondary" style={!props.component.shuffleAfterDel ? { display: 'none' } : null}>
+                      Note:you <b>must</b> shuffle first to click previous/next after deletion
+                    </Typography>
+                    <br />
                   </Grid>
                 ))}
               </Grid>
@@ -126,7 +130,7 @@ export default function Album(props) {
                   <Button
                     variant="contained"
                     onClick={props.handlePrevImg}
-                    disabled={(!props.component.imgCount || props.component.indexOfCurrentImg === 0) ? true : false}
+                    disabled={(!props.component.imgCount || props.component.indexOfCurrentImg === 0 || props.component.shuffleAfterDel) ? true : false}
                   >
                     Previous
                   </Button>
@@ -135,7 +139,7 @@ export default function Album(props) {
                   <Button
                     variant="contained"
                     onClick={props.handleNextImg}
-                    disabled={(props.component.indexOfCurrentImg === props.component.shuffledImgs.length - 1 || props.component.shuffledImgs.length === 0) ? true : false}
+                    disabled={(props.component.indexOfCurrentImg === props.component.shuffledImgs.length - 1 || props.component.shuffledImgs.length === 0 || props.component.shuffleAfterDel) ? true : false}
                   >
                     Next
                   </Button>
@@ -154,6 +158,15 @@ export default function Album(props) {
             </div>
           </Container>
           <Container className={classes.cardGrid} maxWidth="md">
+            <Typography color="textPrimary"
+              variant="h4" style={props.component.shuffledImgs.length ? { display: 'none', paddingBottom: '3%' } : null}>
+              There is no meme in the card, why not exploring?
+            </Typography>
+            <Typography color="textPrimary"
+              variant="h4" style={!props.component.shuffledImgs.length ? { display: 'none', paddingBottom: '3%' } : null}>
+              Great! you have {props.component.shuffledImgs.length} memes, keep it up ^^
+            </Typography> <br />
+            <br />
             <Grid container spacing={4}>
               {imgList.map((card, index) => (
                 <Grid item key={index} xs={12} sm={6} md={4}>
