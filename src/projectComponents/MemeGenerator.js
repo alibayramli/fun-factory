@@ -10,6 +10,7 @@ export class MemeGenerator extends Component {
       indexOfCurrentImg: 0,
       randImg: "",
       imgCount: 0,
+      shuffleAfterDel: false,
       allMemeImgs: [],
       shuffledImgs: [],
     };
@@ -27,7 +28,8 @@ export class MemeGenerator extends Component {
       this.setState({
         randImg: this.state.allMemeImgs[rand].url,
         imgCount: this.state.imgCount + 1,
-        shuffledImgs: this.state.shuffledImgs.concat(this.state.allMemeImgs[rand].url)
+        shuffledImgs: this.state.shuffledImgs.concat(this.state.allMemeImgs[rand].url),
+        shuffleAfterDel: false
       }, () => {
         this.setState(
           {
@@ -47,9 +49,13 @@ export class MemeGenerator extends Component {
     })
   }
   handleDelete(index) {
-    console.log(`In parent index: ${index}`)
-    let newShuffledImg = this.state.shuffledImgs.filter((el, i) => i !== index);
-    this.setState({ shuffledImgs: newShuffledImg })
+    this.setState({ shuffleAfterDel: true }, () => {
+      let newShuffledImg = this.state.shuffledImgs.filter((el, i) => i !== index);
+      this.setState({ shuffledImgs: newShuffledImg }, () => {
+        this.setState({ randImg: this.state.shuffledImgs[this.state.shuffledImgs.length - 1] });
+      })
+    })
+
   }
   handleChange(event) {
     const { name, value } = event.target;
